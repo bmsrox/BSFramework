@@ -1,0 +1,30 @@
+{
+
+	"name" : "bsdev/framework",
+
+	"require" : {
+		"php" : ">= 5.3"
+	},
+
+	"minimum-stability" : "alpha",
+
+	"authors" : [
+		{
+			"name" : "Bruno Santos",
+			"email" : "bmsrox@gmail.com"
+		}
+	],
+
+	"autoload" : {
+		"psr-0" : {
+			"BSFramework" : "vendor/bsframework",
+			"Application" : "module",
+			"Admin" : "module"
+		}
+	},
+
+	"config" : {
+		"bin-dir" : "bin"
+	}
+
+}
