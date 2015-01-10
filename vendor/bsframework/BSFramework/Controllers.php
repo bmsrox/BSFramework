@@ -60,9 +60,9 @@ class Controllers {
 			$output = $this->renderFile($layoutFile, ['content'=>$output], true);
 
 		if($return)
-				return $output;
-			else
-				echo $output;
+			return $output;
+		else
+			echo $output;
 
 	}
 
@@ -73,9 +73,9 @@ class Controllers {
 			$output = $this->renderFile($viewFile, $data, true);
 
 			if($return)
-					return $output;
-				else
-					echo $output;
+				return $output;
+			else
+				echo $output;
 
 		}else{
 			throw new \Exception("File '$view' doesn't exist!");
@@ -86,14 +86,14 @@ class Controllers {
 	public function renderFile($view, $data = null, $return=false) {
 		$output = $this->renderInternal($view, $data, $return);
 		if($return)
-				return $output;
-			else
-				echo $output;
+			return $output;
+		else
+			echo $output;
 	}
 
 	public function renderInternal($view, $data = null, $return=false) {
 
-	    if(is_array($data))
+		if(is_array($data))
 			extract($data);
 
 		if($return)
