@@ -30,19 +30,33 @@ class Controllers {
 		return "../module/" . $this->_namespace . "/views/" . $this->_action;
 	}
 
-	private function getPathViewFile($view) {
-		return $this->getPathView() . '/' . $view . '.php';
+	private function getViewFile($view) {
+
+		$path = $this->getPathView() . '/' . $view . '.php';
+
+		if(file_exists($path))
+			return $path;
+
+		return false;
+
 	}
 
 	private function getPathLayout() {
-		return $this->getPathView() . "/../". $this->layout .".php";
+
+		$layout = $this->getPathView() . "/../". $this->layout .".php";
+
+		if(file_exists($layout))
+			return $layout;
+
+		return false;
+
 	}
 
 	public function render($view, $data=null, $return=false) {
 
 		$output = $this->renderPartial($view, $data, true);
 
-		if(file_exists($layoutFile = $this->getPathLayout()))
+		if($layoutFile = $this->getPathLayout())
 			$output = $this->renderFile($layoutFile, ['content'=>$output], true);
 
 		if($return)
@@ -53,13 +67,20 @@ class Controllers {
 	}
 
 	public function renderPartial($view, $data = null, $return=false) {
-		$viewFile = $this->getPathViewFile($view);
-		$output = $this->renderFile($viewFile, $data, true);
 
-		if($return)
-				return $output;
-			else
-				echo $output;
+		if($viewFile = $this->getViewFile($view)) {
+
+			$output = $this->renderFile($viewFile, $data, true);
+
+			if($return)
+					return $output;
+				else
+					echo $output;
+
+		}else{
+			throw new \Exception("File '$view' doesn't exist!");
+		}
+
 	}
 
 	public function renderFile($view, $data = null, $return=false) {
