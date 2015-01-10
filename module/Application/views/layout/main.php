@@ -6,7 +6,6 @@
 	<title></title>
 </head>
 <body>
-<?php echo $model ?>
 	<?php echo $content; ?>
 </body>
 </html>

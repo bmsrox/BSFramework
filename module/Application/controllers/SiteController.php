@@ -5,10 +5,8 @@ use BSFramework\Controllers;
 
 class SiteController extends Controllers{
 
-	//public $layout = "teste";
-
 	public function actionIndex(){
-		return $this->render('index', ['model'=>'teste']);
+		return $this->render('index', ['model'=>'Renderizando variável pela controller!']);
 	}
 
 	public function actionAbout(){

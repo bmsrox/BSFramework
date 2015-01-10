@@ -38,7 +38,7 @@ class Controllers {
 		return $this->getPathView() . "/../". $this->layout .".php";
 	}
 
-	protected function render($view, $data=null, $return=false) {
+	public function render($view, $data=null, $return=false) {
 
 		$output = $this->renderPartial($view, $data, true);
 
@@ -52,7 +52,7 @@ class Controllers {
 
 	}
 
-	protected function renderPartial($view, $data = null, $return=false) {
+	public function renderPartial($view, $data = null, $return=false) {
 		$viewFile = $this->getPathViewFile($view);
 		$output = $this->renderFile($viewFile, $data, true);
 
@@ -62,7 +62,7 @@ class Controllers {
 				echo $output;
 	}
 
-	protected function renderFile($view, $data = null, $return=false) {
+	public function renderFile($view, $data = null, $return=false) {
 		$output = $this->renderInternal($view, $data, $return);
 		if($return)
 				return $output;
@@ -70,7 +70,7 @@ class Controllers {
 				echo $output;
 	}
 
-	protected function renderInternal($view, $data = null, $return=false) {
+	public function renderInternal($view, $data = null, $return=false) {
 
 	    if(is_array($data))
 			extract($data);
