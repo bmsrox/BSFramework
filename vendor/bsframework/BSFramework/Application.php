@@ -12,7 +12,6 @@ class Application {
 
 	public function setConfig(array $config) {
 		$this->config = $config;
-		return $this;
 	}
 
 	protected function router() {

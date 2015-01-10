@@ -6,6 +6,7 @@
 	<title></title>
 </head>
 <body>
-	<?php echo $this->content(); ?>
+<?php echo $model ?>
+	<?php echo $content; ?>
 </body>
 </html>
