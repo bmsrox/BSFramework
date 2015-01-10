@@ -2,7 +2,7 @@
 
 namespace BSFramework;
 
-abstract class Controllers {
+class Controllers {
 
 	public $layout = "layout/main";
 
@@ -30,18 +30,23 @@ abstract class Controllers {
 		return "../module/" . $this->_namespace . "/views/" . $this->_action;
 	}
 
-	protected function render($view, $data = null) {
+	private function getPathLayout() {
+		return $this->getPathView() . "/../". $this->layout .".php";
+	}
 
-		$this->_view = $view;
+	protected function render($view, $data = null) {
 
 		if(is_array($data) && count($data) > 0)
 			extract($data);
 
-		if(file_exists($this->getPathView() . "/../". $this->layout .".php")){
-			return require_once $this->getPathView() . "/../" . $this->layout . ".php";
-		}
+		$this->_view = $view;
+		$layout = $this->getPathLayout();
+
+		if(file_exists($layout))
+			return require_once $layout;
 		else
 			return $this->content();
+
 	}
 
 	protected function content() {

@@ -2,9 +2,10 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<title></title>
 </head>
-<body><?php echo $teste; ?>
+<body>
 	<?php echo $this->content(); ?>
 </body>
 </html>

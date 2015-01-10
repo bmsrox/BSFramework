@@ -5,10 +5,10 @@ use BSFramework\Controllers;
 
 class SiteController extends Controllers{
 
-	public $layout = "teste";
+	//public $layout = "teste";
 
 	public function actionIndex(){
-		return $this->render('index', ['teste'=>'teste']);
+		return $this->render('index', ['model'=>'teste']);
 	}
 
 	public function actionAbout(){
