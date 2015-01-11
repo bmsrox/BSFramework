@@ -1,6 +1,7 @@
 <?php
 
 namespace BSFramework;
+use BSFramework\BaseApplication as BS;
 
 class Controllers {
 
@@ -78,7 +79,7 @@ class Controllers {
 				echo $output;
 
 		}else{
-			throw new \Exception("File '$view' doesn't exist!");
+			throw new \Exception($this->_controller . ' cannot find the requested view "'.$view.'".');
 		}
 
 	}

@@ -16,9 +16,14 @@ class Application {
 
 	protected function router() {
 
-		array_walk($this->config['modules'], function($routes, $namespace) {
+		$url = $this->getUrl();
 
-			if($route = $routes['routes'][$this->getUrl()]){
+		array_walk($this->config['modules'], function($routes, $namespace) use ($url){
+
+			if(!empty($routes['routes'][$url])){
+
+				$route = $routes['routes'][$url];
+
 				$class = $namespace . "\\controllers\\" . ucfirst($route['controller']) . "Controller";
 				$controller = new $class;
 				$action = "action" . ucfirst($route['action']);

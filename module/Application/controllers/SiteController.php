@@ -6,11 +6,11 @@ use BSFramework\Controllers;
 class SiteController extends Controllers{
 
 	public function actionIndex(){
-		return $this->render('index', ['model'=>'Renderizando variável pela controller!']);
+		return $this->render('index', ['model'=>'Page Index']);
 	}
 
 	public function actionAbout(){
-		echo "About";
+		return $this->render('about', ['model'=>'Page About']);
 	}
 
 }
