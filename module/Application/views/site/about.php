@@ -1,3 +1,3 @@
-<h1>Welcome to BSFramework!</h1>
+<h1>About</h1>
 
 <?php echo $model ?>
