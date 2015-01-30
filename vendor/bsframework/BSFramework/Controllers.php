@@ -46,6 +46,8 @@ class Controllers extends WebApplication {
 		if(file_exists($layout))
 			return $layout;
 
+		return null;
+
 	}
 
 	/**
@@ -56,7 +58,7 @@ class Controllers extends WebApplication {
 	private function processOutput($output) {
 
 		if(file_exists($this->getPathViewLayout()))
-			return $this->renderFile($this->getPathViewLayout(), array('content'=>$output), true);
+			return $this->renderFile($this->getPathViewLayout(), array('content'=>$output));
 
 		return $output;
 	}
@@ -104,7 +106,7 @@ class Controllers extends WebApplication {
 				echo $output;
 
 		}else{
-			throw new \Exception($this->_controller . ' cannot find the requested view "'.$view.'".');
+			throw new \Exception("{$this->_controller} cannot find the requested view '{$view}'");
 		}
 
 	}
