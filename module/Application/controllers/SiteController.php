@@ -1,9 +1,9 @@
 <?php
 
 namespace Application\controllers;
-use BSFramework\Controllers;
+use Application\components\Controller;
 
-class SiteController extends Controllers{
+class SiteController extends Controller{
 
 	public function actionIndex() {
 		return $this->render('index', ['model'=>'Page Index']);
