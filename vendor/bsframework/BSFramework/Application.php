@@ -1,6 +1,7 @@
 <?php
 
 namespace BSFramework;
+use BSFramework\Request;
 
 class Application {
 
@@ -21,13 +22,12 @@ class Application {
 		array_walk($this->config['modules'], function($routes, $namespace) use ($url){
 
 			if(!empty($routes['routes'][$url])){
-
 				$route = $routes['routes'][$url];
-
 				$class = $namespace . "\\controllers\\" . ucfirst($route['controller']) . "Controller";
 				$controller = new $class;
 				$action = "action" . ucfirst($route['action']);
 				$controller->$action();
+				exit;
 			}
 
 		});

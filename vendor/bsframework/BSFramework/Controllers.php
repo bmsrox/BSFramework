@@ -1,31 +1,11 @@
 <?php
 
 namespace BSFramework;
-use BSFramework\BaseApplication as BS;
+use BSFramework\BaseApplication;
 
-class Controllers {
+class Controllers extends BaseApplication {
 
 	public $layout = "layout/main";
-
-	protected $_namespace;
-	protected $_controller;
-	protected $_action;
-	protected $_view;
-
-	public function __construct() {
-		$this->getData();
-	}
-
-	protected function getClass() {
-		return get_class($this);
-	}
-
-	private function getData() {
-		$path = explode('\\', $this->getClass());
-		$this->_namespace = current($path);
-		$this->_controller = end($path);
-		$this->_action = strtolower( str_replace('Controller', '', $this->_controller) );
-	}
 
 	private function getPathView() {
 		return "../module/" . $this->_namespace . "/views/" . $this->_action;
