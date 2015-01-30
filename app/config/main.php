@@ -13,7 +13,7 @@ return array(
 		'Admin' => array(
 			'routes' => array(
 				'/admin'=>array('controller'=>'site', 'action'=>'index'),
-				'/error'=>array('controller'=>'site', 'action'=>'error')
+				'/admin/error'=>array('controller'=>'site', 'action'=>'error')
 			)
 		),
 	)

@@ -4,24 +4,16 @@ namespace BSFramework;
 
 class BaseApplication {
 
-	protected $_namespace;
-	protected $_controller;
-	protected $_action;
-	protected $_view;
+	/**
+	 * $layout default layout
+	 * @var string
+	 */
+	public $layout = "layout/column1";
 
-	public function __construct() {
-		$this->getData();
-	}
-
-	protected function getClass() {
-		return get_class($this);
-	}
-
-	private function getData() {
-		$path = explode('\\', $this->getClass());
-		$this->_namespace = current($path);
-		$this->_controller = end($path);
-		$this->_action = strtolower( str_replace('Controller', '', $this->_controller) );
-	}
+	/**
+	 * $_view define the path to layout/main.php
+	 * @var string
+	 */
+	protected $_view = "layout/main";
 
 }
