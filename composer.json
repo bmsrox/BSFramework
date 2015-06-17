@@ -6,7 +6,7 @@
 		"php" : ">= 5.3"
 	},
 
-	"minimum-stability" : "alpha",
+	"minimum-stability" : "dev",
 
 	"authors" : [
 		{
